@@ -24,6 +24,7 @@ def main():
     number_of_joints = model.njoints
     for i in range(number_of_joints):
         joint = model.joints[i]
+        joint_name = model.names[i]
         jid = joint.idx_q
         joint_placement = model.jointPlacements[i]
 
