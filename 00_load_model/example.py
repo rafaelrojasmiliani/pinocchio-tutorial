@@ -21,6 +21,8 @@ def main():
     # Load the urdf model
     model = buildModelFromUrdf(str(model_file))
     model_name = model.name
+    torque_limits_of_motors = model.effortLimit
+    velocity_limits_of_motors = model.velocityLimit
     number_of_joints = model.njoints
     for i in range(number_of_joints):
         joint = model.joints[i]
@@ -46,6 +48,9 @@ def main():
         frame_placement = frame.placement
         numpy_translation_vector = frame_placement.translation
         numpy_rotation_matrix = frame_placement.rotation
+
+#    import pdb
+#    pdb.set_trace()
 
     for inertia in model.inertias:
         print(inertia)
